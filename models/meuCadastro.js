@@ -1,4 +1,20 @@
-var Pessoas = [];
+const { DataTypes } = require('sequelize');
+const db = require('../infraestrutura/meuInfra');
+
+module.exports = banco.define('meu', {
+    title: {
+        type: DataTypes.TEXT,
+        allowNull: false
+    },
+    status: {
+        type: DataTypes.ENUM,
+        values: ['COMPLETED','ACTIVE'],
+        allowNull:false,
+        defaultValue: 'ACTIVE'
+    }
+});
+
+/**var Pessoas = [];
 
 function classPessoas(cpf, nome, email, idade, stst) {
     this.cpf = cpf;
@@ -36,4 +52,4 @@ function criarPessoas() {
         }
     }
     
-}
+}**/

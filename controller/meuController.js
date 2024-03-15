@@ -1,9 +1,9 @@
-const tasks = require('../Models/cadastro');
+const meu = require('../models/meuCadastro');
 
 const list = async (req, res) => {
     try {
-        const task = await tasks.findAll();
-        res.send({...task})
+        const meu = await meu.findAll();
+        res.send({...meu})
     } catch (error) {
         res.status(500).send(error)
     }
@@ -12,8 +12,8 @@ const list = async (req, res) => {
 
 const create = async (req, res) => {
     try {
-        const task = await tasks.create({...req.body})
-        res.send({...task})
+        const meu = await meu.create({...req.body})
+        res.send({...meu})
     } catch (error) {
         res.status(500).send(error)
     }
