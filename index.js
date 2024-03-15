@@ -1,11 +1,10 @@
 const express = require('express')
 const banco = require('./infraestrutura/bancoDeDados')
+const meuRouters = require('./routers/meuRouters')
 const app = express()
 const port = 3000
-
-app.get('/', (req, res) => {
-  res.send('Meu CRUD Aqui')
-})
+app.use(express.json())
+app.use("/pessoa", meuRouters)
 
 banco.sync();
 
