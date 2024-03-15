@@ -1,5 +1,5 @@
 const { DataTypes } = require('sequelize');
-const db = require('../infraestrutura/meuInfra');
+const banco = require('../infraestrutura/bancoDeDados');
 
 module.exports = banco.define('meu', {
     title: {
