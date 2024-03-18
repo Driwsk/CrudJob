@@ -1,4 +1,4 @@
-const {Sequelize} = require('sequelize');
+const {Sequelize, Model} = require('sequelize');
 
 const banco = new Sequelize({
     dialect: 'sqlite',

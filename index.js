@@ -11,3 +11,4 @@ banco.sync();
 app.listen(port, () => {
   console.log(`meu servidor esta aqui http://localhost:${port}`)
 })
+
