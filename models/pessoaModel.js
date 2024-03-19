@@ -21,6 +21,25 @@ module.exports = banco.define('Pessoa', {
         allowNull: false
     },
 
+    nome: {
+        type: DataTypes.TEXT,
+        allowNull: false
+    },
+    
+    cpf: {
+        type: DataTypes.TEXT,
+        allowNull: false
+    },
+    email: {
+        type: DataTypes.TEXT,
+        allowNull: false
+    },
+
+    dataNac: {
+        type: DataTypes.TEXT,
+        allowNull: false
+    },
+
     status: {
         type: DataTypes.ENUM,
         values: ['COMPLETED','ACTIVE'],
