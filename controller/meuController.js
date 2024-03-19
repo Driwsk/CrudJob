@@ -26,7 +26,7 @@ const create = async (req, res) => {
 
 const editMeuById = async (req, res) => {
     try {
-        if(req?.params?.id){
+        if(!req?.params?.id){
             throw Error("Tarefa não existe")
         }
         const Pessoa = await PessoaModel.update({...req.body}, {where: {id: req.params.id}})
@@ -36,4 +36,18 @@ const editMeuById = async (req, res) => {
     }
 }
 
-module.exports= {list,create,editMeuById}
+const deleteMeuById = async (req, res) => {
+    try {
+        console.log(req?.params)
+        if(!req?.params?.id){
+            throw Error("Tarefa não existe")
+        }
+        const Pessoa = await PessoaModel.destroy({where: {id: req.params.id}})
+        res.send({...Pessoa})
+    } catch (error) {
+        console.log(error)
+        res.status(500).send(error)
+    }
+}
+
+module.exports= {list,create,editMeuById, deleteMeuById}
