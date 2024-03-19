@@ -4,6 +4,6 @@ const meuRouters = Router()
 
 meuRouters.get('/', list)
 meuRouters.post('/', create)
-/*meuRouters.post('/', editMeuById)*/
+meuRouters.post('/', editMeuById)
 
 module.exports = meuRouters;

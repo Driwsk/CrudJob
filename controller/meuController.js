@@ -1,8 +1,9 @@
+const { where } = require('sequelize');
 const PessoaModel = require('../models/pessoaModel');
 
 const list = async (req, res) => {
     try {
-        const Pessoa = await PessoaModel.findAll();
+        const Pessoa = await PessoaModel.findOne();
         res.send({...Pessoa})
     } catch (error) {
         res.status(500).send(error)
@@ -23,16 +24,16 @@ const create = async (req, res) => {
 }
 
 
-/*const editMeuById = async (req, res) => {
+const editMeuById = async (req, res) => {
     try {
         if(req?.params?.id){
             throw Error("Tarefa não existe")
         }
-        const Pessoa = await Pessoa.update({...req.body}, {where: {id: req.params.id}})
+        const Pessoa = await PessoaModel.update({...req.body}, {where: {id: req.params.id}})
         res.send({...Pessoa})
     } catch (error) {
         res.status(500).send(error)
     }
-}*/
+}
 
-module.exports= {list,create,}
+module.exports= {list,create,editMeuById}
