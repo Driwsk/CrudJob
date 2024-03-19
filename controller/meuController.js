@@ -1,9 +1,9 @@
-const meu = require('../models/meuCadastro');
+const PessoaModel = require('../models/pessoaModel');
 
 const list = async (req, res) => {
     try {
-        const meu = await meu.findAll();
-        res.send({...meu})
+        const Pessoa = await PessoaModel.findAll();
+        res.send({...Pessoa})
     } catch (error) {
         res.status(500).send(error)
     }
@@ -12,8 +12,8 @@ const list = async (req, res) => {
 
 const create = async (req, res) => {
     try {
-        const meu = await meu.create({...req.body})
-        res.send({...meu})
+        const Pessoa = await PessoaModel.create({...req.body})
+        res.send({...Pessoa})
     } catch (error) {
         res.status(500).send(error)
     }
@@ -24,8 +24,8 @@ const create = async (req, res) => {
         if(req?.params?.id){
             throw Error("Tarefa não existe")
         }
-        const meu = await meu.update({...req.body}, {where: {id: req.params.id}})
-        res.send({...meu})
+        const Pessoa = await Pessoa.update({...req.body}, {where: {id: req.params.id}})
+        res.send({...Pessoa})
     } catch (error) {
         res.status(500).send(error)
     }
